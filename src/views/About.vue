@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="container">
     <div class="swiper-container">
-      <div class="swiper-wrapper timeline">
-        <div class="swiper-slide" v-for="item in steps" :key="item.dateLabel">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" v-for="item in steps" :key="item.title">
           <div class="status">
             <Button type="primary">{{item.title}}</Button>
           </div>
@@ -40,7 +40,9 @@ export default {
   },
   mounted() {
     this.sp = new Swiper('.swiper-container', {
-      slidesPerView: 5,
+      slidesPerView: 3,
+      grabCursor: true,
+      spaceBetween: 30,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -68,5 +70,13 @@ body {
 }
 .container{
   position: relative;
+  width: 500px;
+  margin: 0 auto;
+}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+  left: -20px;
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+  right: -20px;
 }
 </style>
